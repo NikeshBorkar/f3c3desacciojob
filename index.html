@@ -9,8 +9,16 @@
 <body>
     <section id="SearchandSort">
        <input id="Search"  type="text" placeholder="Search By Name or Symbol">
-       <button id="MktCap">Sort By Mkt Cap</button>
-       <button id="percentage">Sort by percentage</button>
+       <select name="MktCap" id="MktCap">
+        <option value="" disabled selected>Sort By Mkt Cap</option>
+        <option value="LowToHigh">Low to High</option>
+        <option value="HighToLow">High to Low</option>
+    </select>
+    <select name="percentage" id="percentage">
+        <option value="" disabled selected>Sort By Percentage</option>
+        <option value="LowToHigh">Low to High</option>
+        <option value="HighToLow">High to Low</option>
+    </select>
     </section>  
 </body>
 <script src="script.js"></script>

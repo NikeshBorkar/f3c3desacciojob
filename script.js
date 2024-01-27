@@ -32,31 +32,33 @@ async function fetchMoviesJSON() {
             <td>${i.symbol}</td>
             <td>$${i.current_price}</td>
             <td>$${i.total_volume}</td>
-            <td class="changColer">${i.market_cap_change_percentage_24h.toFixed(2)}</td>
+            <td class="changColer" style="color:${
+              i.market_cap_change_percentage_24h >= 0 ? "green" : "red"
+            };">${i.market_cap_change_percentage_24h.toFixed(2)}</td>
             <td>Mkt Cap : $${i.market_cap}</td>    
         </tr>
         `;
     })
     var body = document.getElementsByTagName("body")[0];
     body.appendChild(table);
-    let buttons = document.getElementsByClassName('changColer');
 
-     for(var i=0; i< buttons.length; i++){
-      let x=+buttons[i].innerHTML
-      if(x<0){
-        console.log(buttons[i])
-        buttons[i].style.color="red";
-      }
-     }
   }
 
 // sort by Mkt Cap Price
 
  MktCap.addEventListener("click", sortByMktCap)
- function sortByMktCap() {
+ function sortByMktCap(e) {
+  percentage.value=""
+  if(e.target.value === "LowToHigh"){
     data.sort(function(a,b){
       return  a.market_cap-b.market_cap
     })
+  }else if (e.target.value === "HighToLow"){
+    data.sort(function(a,b){
+      return  b.market_cap-a.market_cap
+    })
+  }
+    
     let table=document.getElementById("table");
     table.remove()
     showdata(data)
@@ -65,10 +67,17 @@ async function fetchMoviesJSON() {
 // sort by percentage
 
   percentage.addEventListener("click", sortByPercentage)
-  function sortByPercentage(){
-    data.sort(function(a,b){
+  function sortByPercentage(e){
+    MktCap.value=""
+    if(e.target.value === "LowToHigh"){
+      data.sort(function(a,b){
         return  a.market_cap_change_percentage_24h-b.market_cap_change_percentage_24h
       })
+    }else if (e.target.value === "HighToLow"){
+      data.sort(function(a,b){
+        return  b.market_cap_change_percentage_24h-a.market_cap_change_percentage_24h
+      })
+    }
       let table=document.getElementById("table");
       table.remove()
       showdata(data)
