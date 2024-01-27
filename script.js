@@ -32,7 +32,7 @@ async function fetchMoviesJSON() {
             <td>${i.symbol}</td>
             <td>$${i.current_price}</td>
             <td>$${i.total_volume}</td>
-            <td class="changColer">${-2}</td>
+            <td class="changColer">${i.market_cap_change_percentage_24h.toFixed(2)}</td>
             <td>Mkt Cap : $${i.market_cap}</td>    
         </tr>
         `;
