@@ -1,0 +1,60 @@
+body{
+    padding: 0%;
+    margin: 0%;
+    background-color: black;
+}
+
+#SearchandSort{
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+}
+input{
+    width: 600px;
+    height: 79px;
+    background: transparent;
+    border: 2px solid gray;
+    color: white;
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+input::placeholder{
+    color: white;
+    font-size: 24px;
+    font-weight: 400;
+}
+button{
+    background: transparent;
+    border: 2px solid gray;
+    color: white;
+    padding: 20px;
+    font-size: 24px;
+    font-weight: 400;
+}
+#table{
+    margin: auto;
+    margin-top: 50px;
+    border-collapse: collapse;
+}
+td{
+    color: white;
+    font-size: 24px;
+    border-bottom: 2px solid gray;
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+td{
+    padding: 20px;
+}
+tr > td:nth-child(6){
+    color: green;
+}
+tr > td:nth-child(4){
+   padding-left: 95px;
+}
